@@ -16,6 +16,8 @@
 import click
 from monitorstack.cli import pass_context
 
+import platform
+
 
 @click.command('uptime', short_help='Get system uptime')
 @pass_context
@@ -27,6 +29,10 @@ def cli(ctx):
     output = {
         'exit_code': 0,
         'message': 'uptime is ok',
+        'measurement_name': 'system_uptime',
+        'meta': {
+            'platform': platform.platform()
+        },
         'variables': {
             'uptime': uptime
         }

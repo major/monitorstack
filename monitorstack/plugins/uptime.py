@@ -12,11 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 """Base monitoring class."""
-import click
-from monitorstack.cli import pass_context
 
 import platform
+
+import click
+
+from monitorstack.cli import pass_context
 
 
 @click.command('uptime', short_help='Get system uptime')

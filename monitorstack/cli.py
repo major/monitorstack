@@ -127,14 +127,14 @@ def process_result(result, output_format, verbose):
             store = list()
             for k, v in sets.items():
                 k = k.replace(' ', '_')
-                for v_type in [int, float, long]:
+                for v_type in [int, float]:
                     try:
                         v = v_type(v)
                     except ValueError:
                         pass  # v was not a int, float, or long
                     else:
                         break
-                if not isinstance(v, (int, float, long, bool)) and quote:
+                if not isinstance(v, (int, float, bool)) and quote:
                     store.append('{}="{}"'.format(k, v))
                 else:
                     store.append('{}={}'.format(k, v))

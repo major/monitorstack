@@ -24,3 +24,8 @@ after_success:
 install:
   - "pip install tox"
 script: "tox"
+
+# Only build the master branch. Travis-CI will still build on PR's.
+branches:
+  only:
+    - master

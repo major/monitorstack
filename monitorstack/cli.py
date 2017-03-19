@@ -82,7 +82,8 @@ class MonitorStackCLI(click.MultiCommand):
 VALID_OUTPUT_FORMATS = [
     'json',
     'line',
-    'telegraf'
+    'telegraf',
+    'rax-maas'
 ]
 
 
@@ -109,7 +110,7 @@ def cli(*args, **kwargs):
 def process_result(results, output_format, **kwargs):
     """Render the output into the proper format."""
     module_name = 'monitorstack.common.formatters'
-    method_name = 'write_{}'.format(output_format)
+    method_name = 'write_{}'.format(output_format.replace('-', '_'))
     output_formatter = getattr(
         importlib.import_module(module_name),
         method_name
